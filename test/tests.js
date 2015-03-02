@@ -2,44 +2,31 @@
 
 var assert = require("assert"),
     subresource = require("../main"),
-    path = require("path");
+    fs = require("fs-sync");
 
 
 describe("Generate:", function () {
+    var tempFixture = "./test/fixtures/temp/jquery-1.10.2.min.js";
+    fs.copy("./test/fixtures/jquery-1.10.2.min.js", tempFixture);
 
-    var filePath = "./test/jquery-1.10.2.min.js.testdata";
-    var absolutePath = path.resolve(filePath);
     var expect = {
-        integrity: "sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg=",
-        age: "PLACEHOLDER"
+        hashes: {
+            sha256: "C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+        },
+        type: undefined,
+        integrity: "sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
     };
 
-    var firstResultTime;
-
     it("Initial hit", function () {
-        var result = subresource(filePath);
-
-        expect.age = result.age; // IMPURE VALUE!
+        var result = subresource(tempFixture);
         assert.deepEqual(expect, result);
     });
 
     it("Cached hit", function () {
-        this.timeout(100);
-
-        var result = subresource(filePath);
-        // age should not have changed
+        fs.remove(tempFixture); // Make sure it can't re-load the fixture
+        var result = subresource(tempFixture);
         assert.deepEqual(expect, result);
     });
 
-    it("Cache age", function () {
-        assert.equal("number", typeof subresource.cache.internal[absolutePath].age);
-    });
-
-    it("Kill cache", function () {
-        subresource.cache.kill(filePath);
-
-        var result = subresource(filePath);
-        assert.equal(true, (expect.age !== result.age));
-    });
 
 });

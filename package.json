@@ -1,7 +1,7 @@
 {
   "name": "subresource",
-  "version": "0.0.0",
-  "description": "Easy sub-resource integrity",
+  "version": "0.0.1",
+  "description": "Easy client-side caching & sub-resource integrity",
   "author": {
     "name": "Neftaly Hernandez",
     "email": "neftaly.hernandez@gmail.com"
@@ -16,16 +16,25 @@
     "test": "mocha"
   },
   "keywords": [
+    "caching",
+    "cache",
+    "busting",
+    "buster",
     "SRI",
-    "Subresource Integrity",
     "subresource",
+    "sub-resource",
     "integrity",
-    "security"
+    "security",
+    "hash",
+    "digest",
+    "file"
   ],
   "dependencies": {
-    "sri-toolbox": "^0.1.2"
+    "ramda": "^0.10.0",
+    "sri-toolbox": "^0.1.3"
   },
   "devDependencies": {
+    "fs-sync": "^0.2.5",
     "mocha": "^2.1.0"
   },
   "engines": {
