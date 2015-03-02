@@ -1,14 +1,19 @@
-# subresource [![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource)
+# subresource
 
-This tool is designed to make using [sub-resource integrity](https://srihash.org/) in your Node app super-simple.
+[![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource) 
 
-**SemVer note:** As the SRI spec has not yet been finalized, minor releases < 1.0.0 can contain breaking changes.
+Super-simple [sub-resource integrity](https://srihash.org/) & client-side caching.
+
 
 Install
 -------
 ```shell
 npm install --save subresource
 ```
+
+SemVer
+------
+The SRI spec has not yet been finalized. Minor releases < 1.0.0 may contain breaking changes, nuts, and soy products.
 
 Usage
 -----
@@ -22,24 +27,39 @@ var element = `<link
     rel="stylesheet">`;
 ```
 
-Other libraries:
- * [handlebars-helper-sri](https://github.com/neftaly/handlebars-helper-sri)
+For improved preformance, use caching:
+```js
+var styleSri = subresource("../public/style.css");
+var element = `<link
+    href="/style.css?${ styleSri.algorithms.sha256 }"
+    integrity="${ styleSri.integrity }"
+    rel="stylesheet">`; 
+```
 
-Caching
+`/style.css?[hash]` headers:
+```
+Cache-Control: public, max-age=31536000
+```
+
+Preload
 -------
-All resources are cached on first hit. This introduces a once-off blocking delay.
+Subresource operates at run-time.
+Lookups are cached internally, negating the need for async operation.
+There is, however, a one-time blocking delay whenever a new resource is loaded.
 
-### Preload
-The synchronous delay shouldn't be a significant issue, however you can always pre-load.
+Pre-loading moves this delay from the event loop to init.
+
+**Note:** 99% of the time, pre-loading is unnecessary. Use only if you are hashing hundreds of files; for thousands, try a build-time tool such as [payload](https://github.com/neftaly/payload).
+
 ```js
 var subresource = require("subresource"),
     Hapi = require("hapi");
 
-// First hit - blocks while generating SRI
+// First hit - blocks while generating
 [
     "../public/script.js",
     "../public/style.css"
-].forEach(subresource); // Load files into cache
+].forEach(subresource); // Preload files into cache
 
 var server = new Hapi.Server(3000);
 server.route({
@@ -70,14 +90,6 @@ server.start(function() {
 });
 ```
 
-### subresource.cache
-To force refresh of resource on next hit:
-```js
-subresource.cache.kill("./relative/file/path");
-```
-
-To directly access the internal cache object:
-```js
-// Resources are indexed internally by absolute path.
-subresource.cache.internal //=> { "/absolute/file/path": { integrity: "XXXX", age: 1234567890 } }
-```
+Other libraries
+---------------
+ * [handlebars-helper-sri](https://github.com/neftaly/handlebars-helper-sri)
