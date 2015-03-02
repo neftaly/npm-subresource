@@ -1,6 +1,6 @@
 # subresource
 
-[![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource) 
+[![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource) [![Coverage Status](https://coveralls.io/repos/neftaly/npm-subresource/badge.svg?branch=master)](https://coveralls.io/r/neftaly/npm-subresource?branch=master)
 
 Super-simple [sub-resource integrity](https://srihash.org/) & client-side caching.
 
@@ -13,7 +13,7 @@ npm install --save subresource
 
 SemVer
 ------
-The SRI spec has not yet been finalized. Minor releases < 1.0.0 may contain breaking changes, nuts, and soy products.
+The SRI spec has not yet been finalized. Minor releases < 1.0.0 may contain breaking changes, nuts, and traces of soy.
 
 Usage
 -----
