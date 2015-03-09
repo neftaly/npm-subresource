@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource)
 [![Coverage Status](https://coveralls.io/repos/neftaly/npm-subresource/badge.svg?branch=master)](https://coveralls.io/r/neftaly/npm-subresource?branch=master)
-[![Dependencies Status](https://david-dm.org/neftaly/npm-subresource.svg)](https://david-dm.org/mozilla/srihash.org)
-[![Dev Dependencies Status](https://david-dm.org/neftaly/npm-subresource/dev-status.svg)](https://david-dm.org/mozilla/srihash.org#info=devDependencies)
+[![Dependencies Status](https://david-dm.org/neftaly/npm-subresource.svg)](https://david-dm.org/neftaly/npm-subresource)
+[![Dev Dependencies Status](https://david-dm.org/neftaly/npm-subresource/dev-status.svg)](https://david-dm.org/neftaly/npm-subresource#info=devDependencies)
 
 This tool generates file hashes & [sub-resource integrity](https://srihash.org/) data at runtime.
 
