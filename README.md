@@ -27,7 +27,7 @@ var element = `<link
     rel='stylesheet'>`;
 ```
 
-For improved preformance, use client-side caching:
+For improved performance, use client-side caching:
 ```js
 var styleSri = subresource("../public/style.css");
 var element = `<link
@@ -45,12 +45,12 @@ Cache-Control: public, max-age=31536000
 
 ## Preload
 Subresource operates at run-time, and caches lookups internally.
-There is, however, a (very minor) one-time blocking delay whenever a new resource is encountered.
+There is, however, a one-time blocking delay whenever a new resource is encountered.
 
 Pre-loading moves this delay from the event loop to init.
 
-**Note:** Pre-loading (or the planned async mode) is almost always unnecessary.
-Use only if you are hashing hundreds of files; for thousands, try a build-time tool such as [grunt-sri](https://github.com/neftaly/grunt-sri).
+**Note:** Pre-loading (or the planned async mode) is generally unnecessary.
+Also consider a build-time tool such as [grunt-sri](https://github.com/neftaly/grunt-sri).
 
 ```js
 var subresource = require("subresource"),

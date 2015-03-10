@@ -1,6 +1,6 @@
 {
   "name": "subresource",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Client-side caching & SRI generation for Node",
   "author": {
     "name": "Neftaly Hernandez",
