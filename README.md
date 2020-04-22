@@ -1,6 +1,6 @@
 # subresource
 
-[![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource)
+[![Build Status](https://github.com/neftaly/npm-subresource/workflows/Tests/badge.svg)](https://github.com/neftaly/npm-subresource/actions?workflow=Tests)
 [![Coverage Status](https://coveralls.io/repos/neftaly/npm-subresource/badge.svg?branch=master)](https://coveralls.io/r/neftaly/npm-subresource?branch=master)
 [![Dependencies Status](https://david-dm.org/neftaly/npm-subresource.svg)](https://david-dm.org/neftaly/npm-subresource)
 [![Dev Dependencies Status](https://david-dm.org/neftaly/npm-subresource/dev-status.svg)](https://david-dm.org/neftaly/npm-subresource#info=devDependencies)
