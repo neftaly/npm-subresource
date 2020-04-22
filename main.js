@@ -1,8 +1,9 @@
+/* jslint node: true */
+
 /*
     subresource
 */
 
-/*jslint node: true */
 "use strict";
 
 var fs = require("fs"),
@@ -10,18 +11,24 @@ var fs = require("fs"),
     sri = require("sri-toolbox").generate,
     R = require("ramda"),
 
-    generate;
+    generate,
+    defaults;
 
+defaults = {
+    algorithms: ["sha256"],
+    full: true
+};
 
 // Load file, and build SRI
-generate = R.memoize(function (filePath) {
+generate = R.memoize(function (filePath, options) {
+    options = R.merge(defaults, options);
     var data = fs.readFileSync(filePath);
-    return sri({ full: true }, data);
+    return sri(options, data);
 });
 
 
 // Resolve file path, and request SRI
-module.exports = R.memoize(function (filePath) {
+module.exports = R.memoize(function (filePath, options) {
     filePath = path.resolve(filePath);
-    return generate(filePath);
+    return generate(filePath, options);
 });
