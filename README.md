@@ -3,20 +3,18 @@
 [![Build Status](https://travis-ci.org/neftaly/npm-subresource.svg?branch=master)](https://travis-ci.org/neftaly/npm-subresource)
 [![Coverage Status](https://coveralls.io/repos/neftaly/npm-subresource/badge.svg?branch=master)](https://coveralls.io/r/neftaly/npm-subresource?branch=master)
 [![Dependencies Status](https://david-dm.org/neftaly/npm-subresource.svg)](https://david-dm.org/neftaly/npm-subresource)
-[![Dev Dependencies Status](https://david-dm.org/neftaly/npm-subresource/dev-status.svg)](https://david-dm.org/neftaly/npm-subresource#info=devDependencies)
+[![Dev Dependencies Status](https://david-dm.org/neftaly/npm-subresource/dev-status.svg)](https://david-dm.org/neftaly/npm-subresource?type=dev)
 
-This tool generates file hashes & [sub-resource integrity](https://srihash.org/) data at runtime.
-
-
+This tool generates file hashes & [sub-resource integrity](https://www.srihash.org/) data at runtime.
 
 ## Install
+
 ```shell
 npm install --save subresource
 ```
 
-
-
 ## Usage
+
 ```js
 var subresource = require("subresource");
 
@@ -28,6 +26,7 @@ var element = `<link
 ```
 
 For improved performance, use client-side caching:
+
 ```js
 var styleSri = subresource("../public/style.css");
 var element = `<link
@@ -37,13 +36,13 @@ var element = `<link
 ```
 
 `/style.css?hash=[...]` headers:
-```
+
+```text
 Cache-Control: public, max-age=31536000
 ```
 
-
-
 ## Preload
+
 Subresource operates at run-time, and caches lookups internally.
 There is, however, a one-time blocking delay whenever a new resource is encountered.
 
@@ -91,17 +90,15 @@ server.start(function() {
 });
 ```
 
+## Semver
 
+This tool follows Semver from v0.1.0, however it is important to note that the [SRI](https://www.w3.org/TR/SRI/) spec is still in draft.
 
-## SemVer
-This tool follows SemVer from v0.1.0, however it is important to note that the [SRI](http://www.w3.org/TR/SRI) spec is still in draft.
-
-Changes to the V1 SRI spec will be tracked with minor releases.
+Changes to the v1 SRI spec will be tracked with minor releases.
 
 Releases < 0.1.0 may contain breaking changes, nuts, and traces of soy.
 
-
-
 ## Other libraries
+
 * [grunt-sri](https://github.com/neftaly/grunt-sri)
 * [handlebars-helper-sri](https://github.com/neftaly/handlebars-helper-sri)
