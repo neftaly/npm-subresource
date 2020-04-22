@@ -18,7 +18,6 @@ describe("Generate:", function () {
             hashes: {
                 sha256: "C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
             },
-            type: undefined,
             integrity: "sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
         };
 
@@ -40,7 +39,6 @@ describe("Generate:", function () {
             hashes: {
                 sha384: "hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
             },
-            type: undefined,
             integrity: "sha384-hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
         };
 
