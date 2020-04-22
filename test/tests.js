@@ -13,12 +13,12 @@ describe("Generate:", () => {
         done();
     });
 
-    describe("sha256:", () => {
+    describe("defaults:", () => {
         const expect = {
             hashes: {
-                sha256: "C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+                sha384: "hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
             },
-            integrity: "sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+            integrity: "sha384-hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
         };
 
         it("Initial hit", () => {
@@ -33,13 +33,13 @@ describe("Generate:", () => {
         });
     });
 
-    describe("sha384:", () => {
-        const options = { algorithms: ["sha384"] };
+    describe("sha256:", () => {
+        const options = { algorithms: ["sha256"] };
         const expect = {
             hashes: {
-                sha384: "hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
+                sha256: "C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
             },
-            integrity: "sha384-hK8q2gkBjirpIGHAH+sgqYMv6i6mfx2JVZWJ50jyYhkuEHASU6AS1UTWSo32wuGL"
+            integrity: "sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
         };
 
         it("Initial hit", () => {

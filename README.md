@@ -31,7 +31,7 @@ For improved performance, use client-side caching:
 ```js
 var styleSri = subresource("../public/style.css");
 var element = `<link
-    href='/style.css?cache=${ styleSri.hashes.sha256 }'
+    href='/style.css?cache=${ styleSri.hashes.sha384 }'
     integrity='${ styleSri.integrity }'
     rel='stylesheet'>`;
 ```

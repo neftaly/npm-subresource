@@ -12,7 +12,7 @@ const sri = require("sri-toolbox").generate;
 const R = require("ramda");
 
 const defaults = {
-    algorithms: ["sha256"],
+    algorithms: ["sha384"],
     full: true
 };
 
