@@ -8,6 +8,15 @@ const fs = require("fs-sync");
 const tempFixture = path.join(__dirname, "./fixtures/temp/jquery-1.10.2.min.js");
 
 describe("Generate:", () => {
+    before(done => {
+        fs.remove(tempFixture) // remove the temp file if it exists
+        done();
+    });
+    after(done => {
+        fs.remove(tempFixture) // remove the temp file if it exists
+        done();
+    });
+
     beforeEach(done => {
         fs.copy(path.join(__dirname, "./fixtures/jquery-1.10.2.min.js"), tempFixture);
         done();
@@ -51,6 +60,15 @@ describe("Generate:", () => {
             fs.remove(tempFixture); // Make sure it can't re-load the fixture
             const result = subresource(tempFixture, options);
             assert.deepStrictEqual(expect, result);
+        });
+    });
+
+    describe("invalid:", () => {
+        const options = { algorithms: ["sha256", "sha384"] };
+
+        it("Error", () => {
+            const result = () => subresource(tempFixture, options);
+            assert.throws(result, "Error: options.algorithms should include only one algorithm!");
         });
     });
 });
