@@ -27,7 +27,7 @@
     "digest",
     "file"
   ],
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha",
     "test:cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
