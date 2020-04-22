@@ -33,7 +33,7 @@
     "test:cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "ramda": "^0.24.1",
+    "fast-memoize": "^2.5.2",
     "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
