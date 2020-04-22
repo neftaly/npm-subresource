@@ -23,13 +23,13 @@ describe("Generate:", () => {
 
         it("Initial hit", () => {
             const result = subresource(tempFixture);
-            assert.deepEqual(expect, result);
+            assert.deepStrictEqual(expect, result);
         });
 
         it("Cached hit", () => {
             fs.remove(tempFixture); // Make sure it can't re-load the fixture
             const result = subresource(tempFixture);
-            assert.deepEqual(expect, result);
+            assert.deepStrictEqual(expect, result);
         });
     });
 
@@ -44,13 +44,13 @@ describe("Generate:", () => {
 
         it("Initial hit", () => {
             const result = subresource(tempFixture, options);
-            assert.deepEqual(expect, result);
+            assert.deepStrictEqual(expect, result);
         });
 
         it("Cached hit", () => {
             fs.remove(tempFixture); // Make sure it can't re-load the fixture
             const result = subresource(tempFixture, options);
-            assert.deepEqual(expect, result);
+            assert.deepStrictEqual(expect, result);
         });
     });
 });
